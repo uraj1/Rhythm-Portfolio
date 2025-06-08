@@ -153,7 +153,7 @@ const Footer = () => {
               >
                 rhythmcgarg@gmail.com
               </motion.a>
-              <p className="text-gray-400">San Francisco, CA</p>
+              <p className="text-gray-400">Patiala, India</p>
               <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-3 mt-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

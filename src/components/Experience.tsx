@@ -113,6 +113,7 @@ const Experience = () => {
     'Data Analyst OneRoadmap',
     'Power BI Data Analyst Associate by LearnTube.ai',
     'Frontend Dev. Libraries by FreeCodeCamp',
+    'The Ultimate Guide to Effective Communication by Ankur Warikoo',
   ];
 
   const containerVariants = {

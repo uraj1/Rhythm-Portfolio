@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 

@@ -109,12 +109,29 @@ const Experience = () => {
     // }
   ];
 
-  const certifications = [
-    'Data Analyst OneRoadmap',
-    'Power BI Data Analyst Associate by LearnTube.ai',
-    'Frontend Dev. Libraries by FreeCodeCamp',
-    'The Ultimate Guide to Effective Communication by Ankur Warikoo',
-  ];
+ const certifications = [
+  {
+    title: 'Data Analyst OneRoadmap',
+    link: 'https://oneroadmap.io/skills/da/certificate/CERT-4D8009D3'
+  },
+  {
+    title: 'Power BI Data Analyst Associate by LearnTube.ai',
+    link: 'https://learntube.ai/verify/certificate/0ee91134-ff5a-4e7e-94f9-f915539877b1'
+  },
+  {
+    title: 'Frontend Dev. Libraries by FreeCodeCamp',
+    link: 'https://www.freecodecamp.org/certification/fcca1c6cb51-1dfa-4883-9dc9-1b93cf491be7/front-end-development-libraries'
+  },
+  {
+    title: 'The Ultimate Guide to Effective Communication by Ankur Warikoo',
+    link: 'https://www.linkedin.com/posts/rhythm-garg-93b1ba208_professionaldevelopment-effectivecommunication-activity-7209272933590999041-XUis?utm_source=share&utm_medium=member_desktop&rcm=ACoAAET1onwBLsT2Ky0m6v18mijj5LsXUQAwBhM'
+  },
+  {
+    title: 'Data Analytics Job Simulation Delloitte',
+    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_Rnc6wGvXrWNtHKXn4_1749593863880_completion_certificate.pdf'
+  }
+];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -295,34 +312,42 @@ const Experience = () => {
             </motion.div>
 
             {/* Certifications */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Certifications</h3>
-              <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
-                <div className="space-y-4">
-                  {certifications.map((cert, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                    >
-                      <div className="w-3 h-3 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full"></div>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{cert}</span>
-                    </motion.div>
-                  ))}
-                </div>
+           <motion.div variants={itemVariants}>
+  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Certifications</h3>
+  <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+    <div className="space-y-4">
+      {certifications.map((cert, index) => (
+        <motion.div
+          key={index}
+          className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
+          whileHover={{ scale: 1.02, x: 5 }}
+        >
+          <div className="flex items-center space-x-3">
+            <div className="w-3 h-3 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full"></div>
+            <span className="text-gray-700 dark:text-gray-300 font-medium">{cert.title}</span>
+          </div>
+          <a href={cert.link} target="_blank" rel="noopener noreferrer">
+            <svg className="w-5 h-5 text-blue-600 hover:text-teal-600 transition" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 3h7v7M10 14L21 3M21 21H3V3h7" />
+            </svg>
+          </a>
+        </motion.div>
+      ))}
+    </div>
 
-                <motion.div
-                  className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-lg"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Continuous Learning</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Committed to staying current with the latest developments in data science and analytics. 
-                    Regularly pursuing additional certifications and attending industry conferences.
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
+    <motion.div
+      className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Continuous Learning</h4>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        Committed to staying current with the latest developments in data science and analytics. 
+        Regularly pursuing additional certifications and attending industry conferences.
+      </p>
+    </motion.div>
+  </div>
+</motion.div>
+
           </div>
         </motion.div>
       </div>

@@ -7,6 +7,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +30,15 @@ const Header = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
+  };
+
+  const handleMobileNavClick = (href: string) => {
+    setScrollTarget(href);
+    setIsOpen(false);
   };
 
   return (
@@ -106,13 +113,19 @@ const Header = () => {
             height: isOpen ? 'auto' : 0,
             opacity: isOpen ? 1 : 0,
           }}
+          onAnimationComplete={() => {
+            if (!isOpen && scrollTarget) {
+              scrollToSection(scrollTarget);
+              setScrollTarget(null);
+            }
+          }}
           className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg mt-2"
         >
           <div className="py-2 space-y-1">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleMobileNavClick(item.href)}
                 className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
                 whileHover={{ x: 8 }}
               >
